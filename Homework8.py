@@ -18,23 +18,36 @@
 # s.drive()
 
 
+<<<<<<< HEAD
 class Phone():
+=======
+class Phone:
+>>>>>>> feature/homework8
     def __init__(self, brand, model):
         self.brand = brand
         self.model = model
 
+<<<<<<< HEAD
     def sayone(self):
         print(f"This is {self.brand}")
 
     def saytwo(self):
         print(f"His model - {self.model}")
 
+=======
+    def say_one(self):
+        print(f"This is {self.brand}")
+
+        def say_two(self):
+            print(f"His model - {self.model}")
+>>>>>>> feature/homework8
 
 class Smartphone(Phone):
     def __init__(self, brand, model, OS):
         super().__init__(brand, model)
         self.OS = OS
 
+<<<<<<< HEAD
     def sayOS(self):
         print(f"OS - {self.OS}")
 
@@ -43,3 +56,12 @@ mobile = Phone("Nokia", 3310)
 mobile.sayone()
 mobik = Smartphone("Xiaomi", "Redmi", "Android")
 mobik.sayOS()
+=======
+    def say_OS(self):
+        print(f"OS - {self.OS}")
+
+mobile = Phone("Nokia", 3310)
+mobile.say_one()
+mobik = Smartphone("Xiaomi", "Redmi", "Android")
+mobik.say_OS()
+>>>>>>> feature/homework8
