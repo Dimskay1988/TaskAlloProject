@@ -18,17 +18,18 @@
 
 import re
 
-class regularka:
+class Regularka:
     @staticmethod
     def matching(text):
         match = re.fullmatch(r'\w+.\w+@\w+.\w+', text)
         print('YES' if match else 'NO')
+
     @staticmethod
     def finding(text):
         search = re.findall(r'\w+.\w+@\w+.\w+', text)
         print(search)
 
-Email = regularka
+EmailValidator = Regularka
 First = Email.matching("Example-2155@gmail.com")
 Second = Email.matching("This is just text")
 
