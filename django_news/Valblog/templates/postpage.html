@@ -1,11 +1,58 @@
 <!DOCTYPE html>
 <html>
-<body style="background-color:powderblue;">
+<head>
+    <style>
+
+div {
+    border: 1px solid black;
+    background-color: PeachPuff;
+    padding-top: 5px;
+    padding-right: 30px;
+    padding-bottom: 5px;
+    padding-left: 80px;
+    text-align: center;
+}
+
+.nav {
+    background-color: yellow;
+    list-style-type: none;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.nav li {
+    display: inline-block;
+    font-size: 20px;
+    padding: 5px;
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.zagolovok {
+    text-align: center;
+}
+</style>
+</head>
 
 {% block body %}
-<h1>Первая страница</h1>
+<body style="background-color:Thistle;">
+<h1 class="zagolovok">Путь боли и динамики</h1>
 
-<p>Привет, это первая страница нового приложения. В адрессной строке вы ввели число {{ post }}</p>
+<ul class="nav">
+<li><p><a href="http://127.0.0.1:8000/posts/">Просто страница с статитическим маршрутом</a></p></li>
+<li><p><a href="http://127.0.0.1:8000/posts/1/">Страница тестирования динамического маршрута</a></p></li>
+<li><p><a href="http://127.0.0.1:8000/aboutproject/">О проекте</a></p></li>
+<li><p><a href="http://127.0.0.1:8000/redsquad/">Страница с красным html квадратом</a></p></li>
+</ul>
+
+<div><p>Привет, это первая страница нового приложения. В адрессной строке вы ввели число {{ post }}</p></div>
+{% load static %}
+<img src="{% static "hide-the-pain-harold.webp" %}" alt="new image"/>
 {% endblock %}
 
 </body>

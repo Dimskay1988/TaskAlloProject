@@ -1,9 +1,36 @@
 {% extends 'postpage.html' %}
 
 {% block body %}
-    <h1>Красный квадрат</h1>
 
-    <p>Это красный квадрат</p>
+<head>
+    <style>
 
-    {% include 'squad.html' %}
+    .zagolovok {
+        text-align: center;
+    }
+
+    squad {
+        padding-top: 5px;
+        padding-right: 30px;
+        padding-bottom: 5px;
+        padding-left: 80px;
+    }
+
+    </style>
+</head>
+
+<body style="background-color:DarkGray;">
+
+<h1 class="zagolovok">Красный квадрат</h1>
+
+<ul class="nav">
+    <li><p><a href="http://127.0.0.1:8000/posts/">Просто страница с статитическим маршрутом</a></p></li>
+    <li><p><a href="http://127.0.0.1:8000/posts/1/">Страница тестирования динамического маршрута</a></p></li>
+    <li><p><a href="http://127.0.0.1:8000/aboutproject/">О проекте</a></p></li>
+    <li><p><a href="http://127.0.0.1:8000/redsquad/">Страница с красным html квадратом</a></p></li>
+</ul>
+
+<p class="zagolovok">Это красный квадрат</p>
+
+{% include 'squad.html' %}
 {% endblock %}
