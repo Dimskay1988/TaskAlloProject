@@ -40,6 +40,7 @@ img {
 </head>
 
 {% block body %}
+<title>Путь боли и динамики</title>
 <body style="background-color:Thistle;">
 <h1 class="zagolovok">Путь боли и динамики</h1>
 
@@ -50,7 +51,7 @@ img {
 <li><p><a href="http://127.0.0.1:8000/redsquad/">Страница с красным html квадратом</a></p></li>
 </ul>
 
-<div><p>Привет, это первая страница нового приложения. В адрессной строке вы ввели число {{ post }}</p></div>
+<div><p>Привет, это динамическая страница. В адрессной строке вы ввели число {{ post }}</p></div>
 {% load static %}
 <img src="{% static "hide-the-pain-harold.webp" %}" alt="new image"/>
 {% endblock %}

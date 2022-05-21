@@ -38,6 +38,7 @@ img {
     text-align: center;
 }
 </style>
+<title>Статичный путь</title>
 </head>
 
 {% block body %}
@@ -53,7 +54,6 @@ img {
 <div><p>Привет, это просто страница со статистической маршрутизацией</p></div>
 {% load static %}
 <img src="{% static "myexample.jpg" %}" alt="My image"/>
-<title>Статичный путь<title>
 {% endblock %}
 </body>
 </html>
