@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+     <style>
+
+div {
+    border: 1px solid black;
+    background-color: SpringGreen;
+    padding-top: 5px;
+    padding-right: 30px;
+    padding-bottom: 5px;
+    padding-left: 80px;
+}
+
+.nav {
+    background-color: yellow;
+    list-style-type: none;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.nav li {
+    display: inline-block;
+    font-size: 20px;
+    padding: 5px;
+}
+</style>
+    <title>Статичный путь</title>
+</head>
+<body>
+
+<ul class="nav">
+    <li><p><a href="http://127.0.0.1:8000/posts/">Просто страница с статитическим маршрутом</a></p></li>
+    <li><p><a href="http://127.0.0.1:8000/posts/1/">Страница тестирования динамического маршрута</a></p></li>
+    <li><p><a href="http://127.0.0.1:8000/aboutproject/">О проекте</a></p></li>
+    <li><p><a href="http://127.0.0.1:8000/redsquad/">Страница с красным html квадратом</a></p></li>
+    <li><p><a href="http://127.0.0.1:8000/announce/">Доска обьявлений</a></p></li>
+</ul>
+
+{% block body %}
+    {% for i in Announs %}
+    <div><strong><p>{{ i.header }}</p></strong>
+        <i><p>{{ i.Author }}</p></i>
+        <p>{{ i.text }}</p></div>
+    {% endfor %}
+{% endblock %}
+</body>
+</html>
