@@ -3,6 +3,6 @@ from django.shortcuts import render
 from board.models import Announs
 
 def annouce(request):
-    result = Announs.objects.all()
+    result = Announs.objects.filter()
     return render(request, 'announcepage.html', context={'Announs': result})
 

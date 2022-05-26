@@ -1,61 +1,32 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <style>
-
-div {
-    border: 1px solid black;
-    background-color: PeachPuff;
-    padding-top: 5px;
-    padding-right: 30px;
-    padding-bottom: 5px;
-    padding-left: 80px;
-    text-align: center;
-}
-
-.nav {
-    background-color: yellow;
-    list-style-type: none;
-    text-align: center;
-    margin: 0;
-    padding: 0;
-}
-
-.nav li {
-    display: inline-block;
-    font-size: 20px;
-    padding: 5px;
-}
-
-img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.zagolovok {
-    text-align: center;
-}
-</style>
-</head>
+{% extends 'basehtml.html' %}
 
 {% block body %}
-<title>Путь боли и динамики</title>
 <body style="background-color:Thistle;">
-<h1 class="zagolovok">Путь боли и динамики</h1>
 
-<ul class="nav">
-<li><p><a href="http://127.0.0.1:8000/posts/">Просто страница с статитическим маршрутом</a></p></li>
-<li><p><a href="http://127.0.0.1:8000/posts/1/">Страница тестирования динамического маршрута</a></p></li>
-<li><p><a href="http://127.0.0.1:8000/aboutproject/">О проекте</a></p></li>
-<li><p><a href="http://127.0.0.1:8000/redsquad/">Страница с красным html квадратом</a></p></li>
-        <li><p><a href="http://127.0.0.1:8000/announce/">Доска обьявлений</a></p></li>
+<ul class="nav nav-pills nav-fill p-3 mb-1" style="background-color: #e3f2fd;>
+  <li class="nav-item">
+    <a class="nav-link" href="http://127.0.0.1:8000/aboutproject/">О проекте</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link"  href="http://127.0.0.1:8000/posts/">Просто страница с статитическим маршрутом</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="http://127.0.0.1:8000/posts/1/">Страница тестирования динамического маршрута</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="http://127.0.0.1:8000/redsquad/">Страница с красным html квадратом</a>
+  </li>
+    <li class="nav-item">
+    <a class="nav-link" href="http://127.0.0.1:8000/announce/">Доска обьявлений</a>
+  </li>
 </ul>
 
-<div><p>Привет, это динамическая страница. В адрессной строке вы ввели число {{ post }}</p></div>
+<div class="card w-auto p-2 mb-1" style="width: 18rem;">
+  <div class="card-body">
+    <p class="card-text">Привет, это динамическая страница. В адрессной строке вы ввели число {{ post }}</p>
+  </div>
+</div>
 {% load static %}
 <img src="{% static "hide-the-pain-harold.webp" %}" alt="new image"/>
 {% endblock %}
 
-</body>
-</html>

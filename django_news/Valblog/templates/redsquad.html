@@ -1,4 +1,4 @@
-{% extends 'postpage.html' %}
+{% extends 'basehtml.html' %}
 
 {% block body %}
 
@@ -22,14 +22,23 @@
 
 <body style="background-color:DarkGray;">
 
-<h1 class="zagolovok">Красный квадрат</h1>
 
-<ul class="nav">
-    <li><p><a href="http://127.0.0.1:8000/posts/">Просто страница с статитическим маршрутом</a></p></li>
-    <li><p><a href="http://127.0.0.1:8000/posts/1/">Страница тестирования динамического маршрута</a></p></li>
-    <li><p><a href="http://127.0.0.1:8000/aboutproject/">О проекте</a></p></li>
-    <li><p><a href="http://127.0.0.1:8000/redsquad/">Страница с красным html квадратом</a></p></li>
-        <li><p><a href="http://127.0.0.1:8000/announce/">Доска обьявлений</a></p></li>
+<ul class="nav nav-pills nav-fill p-3 mb-5" style="background-color: #e3f2fd;>
+  <li class="nav-item">
+     <a class="nav-link" href="http://127.0.0.1:8000/aboutproject/">О проекте</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="http://127.0.0.1:8000/posts/">Просто страница с статитическим маршрутом</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="http://127.0.0.1:8000/posts/1/">Страница тестирования динамического маршрута</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link active" aria-current="page"  href="ttp://127.0.0.1:8000/redsquad/">Страница с красным html квадратом</a>
+  </li>
+    <li class="nav-item">
+    <a class="nav-link" href="http://127.0.0.1:8000/announce/">Доска обьявлений</a>
+  </li>
 </ul>
 
 <p class="zagolovok">Это красный квадрат</p>
