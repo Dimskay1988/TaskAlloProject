@@ -1,47 +1,7 @@
-{% extends 'basehtml.html' %}
+{% extends 'Indexpage.html' %}
 
 {% block body %}
-
-<head>
-    <style>
-
-    .zagolovok {
-        text-align: center;
-    }
-
-    squad {
-        padding-top: 5px;
-        padding-right: 30px;
-        padding-bottom: 5px;
-        padding-left: 80px;
-    }
-
-    </style>
-    <title>Красный квадрат</title>
-</head>
-
-<body style="background-color:DarkGray;">
-
-
-<ul class="nav nav-pills nav-fill p-3 mb-5" style="background-color: #e3f2fd;>
-  <li class="nav-item">
-     <a class="nav-link" href="http://127.0.0.1:8000/aboutproject/">О проекте</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="http://127.0.0.1:8000/posts/">Просто страница с статитическим маршрутом</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="http://127.0.0.1:8000/posts/1/">Страница тестирования динамического маршрута</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link active" aria-current="page"  href="ttp://127.0.0.1:8000/redsquad/">Страница с красным html квадратом</a>
-  </li>
-    <li class="nav-item">
-    <a class="nav-link" href="http://127.0.0.1:8000/announce/">Доска обьявлений</a>
-  </li>
-</ul>
-
-<p class="zagolovok">Это красный квадрат</p>
+{% load static %}
 
 {% include 'squad.html' %}
 {% endblock %}

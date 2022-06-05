@@ -1,36 +1,21 @@
-{% extends 'basehtml.html' %}
+{% extends 'Indexpage.html' %}
 
 {% block body %}
-
-<body style="background-color:MediumSpringGreen;">
-<ul class="nav nav-pills nav-fill p-3 mb-1" style="background-color: #e3f2fd;>
-  <li class="nav-item">
-    <a class="nav-link" href="http://127.0.0.1:8000/aboutproject/">О проекте</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link active" aria-current="page"  href="http://127.0.0.1:8000/posts/">Просто страница с статитическим маршрутом</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="http://127.0.0.1:8000/posts/1/">Страница тестирования динамического маршрута</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="http://127.0.0.1:8000/redsquad/">Страница с красным html квадратом</a>
-  </li>
-    <li class="nav-item">
-    <a class="nav-link" href="http://127.0.0.1:8000/announce/">Доска обьявлений</a>
-  </li>
-</ul>
-
-<div class="card w-auto p-2 mb-1" style="width: 18rem;">
-  <div class="card-body">
-    <p class="card-text">Привет, это просто страница со статистической маршрутизацией</p>
-  </div>
-</div>
 {% load static %}
-
-<figure class="figure">
-  <img src="{% static "myexample.jpg" %}" class="figure-img img-fluid rounded" alt="Фото">
-  <figcaption class="figure-caption">Волк</figcaption>
-</figure>
+		<div class="ptb-150 border-t-b" style="background-image: url({% static "road.png"%})">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-8">
+						<div class="slider-content">
+							<h2 style="color:white;">Статическая маршрутизация
+							</h2>
+							<p style="color:LightCyan;">Привет, это просто страница со статистической маршрутизацией</p>
+							<a class="btn" href="http://127.0.0.1:8000/">На главную страницу</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 {% endblock %}
+
 
