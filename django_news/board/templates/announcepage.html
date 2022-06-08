@@ -82,6 +82,30 @@
 		<div class="blog-area gray-bg ptb-90">
 			<div class="container">
 				<div class="row blog-masonry">
+					{% for i in ImagePost %}
+					<div class="col-lg-4 col-md-6 blog-item mb-40">
+						<div class="blog-wrapper blog-column">
+							{% if i.image_content %}
+							<div class="blog-thumb">
+								<a href=http://127.0.0.1:8000/announce/{{ i.id }}>
+									<img src="{{i.image_content.url}}" alt="" />
+								</a>
+							</div>
+							{% endif %}
+							<div class="blog-desc">
+								<div class="blog-content">
+									<h2 class="blog-title">
+										<a href=http://127.0.0.1:8000/announce/{{ i.id }}>{{ i.header }}</a>
+									</h2>
+								</div>
+								<div class="link-box">
+									<a href="http://127.0.0.1:8000/announce/{{ i.id }}">Читать целиком</a><br>
+								</div>
+							</div>
+						</div>
+					</div>
+					{% endfor %}
+
 					{% for i in Announs %}
 					<div class="col-lg-4 col-md-6 blog-item mb-40">
 						<div class="blog-wrapper blog-column">
@@ -103,6 +127,7 @@
 						</div>
 					</div>
 					{% endfor %}
+
 				</div>
 <!--				<div class="row">-->
 <!--					<div class="col-sm-12">-->
