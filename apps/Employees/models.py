@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
-from autoslug import AutoSlugField
-# from apps.Task.models import Task
+import slugify
+from apps.Task.models import *
 
 
 class RolesChoice(models.TextChoices):
@@ -19,9 +19,10 @@ class StatusWorkerChoice(models.TextChoices):
 class CustomUser(AbstractUser):
     role = models.CharField(choices=RolesChoice.choices, max_length=20)
     status = models.CharField(max_length=15, choices=StatusWorkerChoice.choices, default=StatusWorkerChoice.bench)
-    team = models.ForeignKey('Team', on_delete=models.SET_NULL, null=True, related_name="current_team", blank=True)
-    slug = AutoSlugField(populate_from='username', unique=True)
-    #assigned_task = models.ManyToManyField(Task, on_delete=models.SET_NULL, null=True, related_name='assigned_task')
+    team = models.ForeignKey('Team', on_delete=models.SET_NULL, blank=True, null=True, related_name='id_team')
+    slug = models.SlugField(editable=False, default="", blank=True, null=True)
+
+    # assigned_task = models.ForeignKey(CustomUer, on_delete=models.SET_NULL, null=True, related_name='assigned_task')
 
     def set_status(self):
         status = {
@@ -33,12 +34,17 @@ class CustomUser(AbstractUser):
             return
         self.status = status[bool(self.team)]
 
-    # @property
-    # def count_tasks(self):
-    #     return self.assigned_task.count()
+    @property
+    def count_tasks(self):
+        return self.assigned_task.count()
+
+    def generate_slug(self):
+        if not self.slug:
+            self.slug = slugify.slugify(self.username)
 
     def save(self, *args, **kwargs):
         self.set_status()
+        self.generate_slug()
         return super().save(*args, **kwargs)
 
 
@@ -48,6 +54,9 @@ class Team(models.Model):
         verbose_name_plural = 'Teams'
 
     name = models.CharField(max_length=150)
+    worker = models.OneToOneField(CustomUser, on_delete=models.CASCADE,
+                                  limit_choices_to={"role": RolesChoice.worker, 'status': StatusWorkerChoice.bench},
+                                  related_name='worker')
     manager = models.ManyToManyField(CustomUser, limit_choices_to={"role": RolesChoice.manager}, related_name='manager')
 
     def __str__(self):
