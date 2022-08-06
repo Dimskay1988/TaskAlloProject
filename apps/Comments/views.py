@@ -1,6 +1,6 @@
 from rest_framework import viewsets, response
-from .serializers import ConnectSerializer
-from .models import Comment
+from .serializers import CommentSerializer, ImageCommentSerializer
+from .models import Comment, ImageComment
 
 class CommentViewSet(viewsets.ModelViewSet):
     """Список всех коментов"""
