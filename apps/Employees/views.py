@@ -1,5 +1,6 @@
 import requests
 from rest_framework import status
+from rest_framework.authentication import SessionAuthentication, BasicAuthentication
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.viewsets import ModelViewSet
@@ -13,8 +14,10 @@ class UsersViewSet(ModelViewSet):
     """Список всех пользователей"""
     serializer_class = UserSerializer
     queryset = CustomUser.objects.all()
-    authentication_classes = [SessionAuthentication, BasicAuthentication]
+    lookup_field = 'slug'
     permission_classes = [IsAuthenticated]
+    authentication_classes = [SessionAuthentication, BasicAuthentication]
+
 
 
 class TeamViewSet(ModelViewSet):
