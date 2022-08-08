@@ -6,8 +6,8 @@ from django.contrib.auth.hashers import make_password
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = CustomUser
-        fields = ['username', 'email', 'role', 'id', 'first_name', 'team',
-                  'last_name', 'count_tasks', 'date_joined', 'password', 'slug']
+        fields = ['username', 'email', 'role', 'id', 'first_name',
+                  'last_name', 'date_joined', 'password', 'slug', 'team', 'status']
         lookup_field = "slug"
 
     def create(self, validated_data):
@@ -21,8 +21,8 @@ class UserSerializer(serializers.ModelSerializer):
 
 
 class TeamSerializer(serializers.ModelSerializer):
-    manager = UserSerializer(many=True)
-    worker = UserSerializer(many=False)
+    # manager = UserSerializer(many=True)
+    # worker = UserSerializer(many=False)
 
     class Meta:
         model = Team
