@@ -3,7 +3,6 @@ from .serializers import CommentSerializer, ImageCommentSerializer
 from .models import Comment, ImageComment
 from TaskAlloProject.permissions import IsManagerOrReadAndPostOnly
 
-
 class CommentViewSet(viewsets.ModelViewSet):
     """Список всех коментов"""
     serializer_class = CommentSerializer

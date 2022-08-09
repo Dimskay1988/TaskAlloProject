@@ -23,6 +23,8 @@ class UserSerializer(serializers.ModelSerializer):
 class TeamSerializer(serializers.ModelSerializer):
     #manager = UserSerializer(many=True)
 
+
     class Meta:
         model = Team
-        fields = ['id', 'name', 'manager']
+        fields = ['id', 'name', 'manager', 'worker']
+        
