@@ -55,9 +55,6 @@ class Team(models.Model):
         verbose_name_plural = 'Teams'
 
     name = models.CharField(max_length=150)
-    worker = models.OneToOneField(CustomUser, on_delete=models.CASCADE,
-                                  limit_choices_to={"role": RolesChoice.worker, 'status': StatusWorkerChoice.bench},
-                                  related_name='worker')
     manager = models.ManyToManyField(CustomUser, limit_choices_to={"role": RolesChoice.manager}, related_name='manager')
 
     def __str__(self):

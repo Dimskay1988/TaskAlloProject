@@ -29,7 +29,6 @@ class Task(models.Model):
     creator = models.ForeignKey(CustomUser, on_delete=models.SET_NULL, null=True,
                                 limit_choices_to=Q(role=RolesChoice.admin) | Q(role=RolesChoice.manager))
     status_task = models.TextField(choices=StatusTaskChoice.choices, default='Backlog', verbose_name='Status task')
-    status_task = models.TextField(choices=StatusTaskChoice.choices, default='Backlog', verbose_name='Status task')
     deadline = models.DateTimeField(null=True, blank=True)
     image_task = models.ManyToManyField(ImageTask, blank=True)
     tasks_connections = models.ManyToManyField('self', blank=True)
