@@ -2,9 +2,7 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 from autoslug import AutoSlugField
 from django.apps import apps
-
-
-# from apps.Task.models import Task
+import slugify
 
 
 class RolesChoice(models.TextChoices):
@@ -27,6 +25,7 @@ class CustomUser(AbstractUser):
     # assigned_task = models.ManyToManyField(apps.get_model('Task', 'Task', require_ready=False),
     #                                        blank=True, related_name='assigned_task')
 
+
     def set_status(self):
         status = {
             True: StatusWorkerChoice.in_team,
@@ -38,12 +37,17 @@ class CustomUser(AbstractUser):
             return
         self.status = status[bool(self.team)]
 
-    # @property
-    # def count_tasks(self):
-    #     return self.assigned_task.count()
+    @property
+    def count_tasks(self):
+        return self.assigned_task.count()
+
+    def generate_slug(self):
+        if not self.slug:
+            self.slug = slugify.slugify(self.username)
 
     def save(self, *args, **kwargs):
         self.set_status()
+        self.generate_slug()
         return super().save(*args, **kwargs)
 
 

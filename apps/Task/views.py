@@ -4,7 +4,6 @@ from rest_framework.response import Response
 from TaskAlloProject.permissions import IsManagerOrReadOnly
 from .serializers import TaskSerializer, ImageTaskSerializer
 from .models import Task, ImageTask
-from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.permissions import IsAuthenticated
 
 
