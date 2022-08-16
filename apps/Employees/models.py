@@ -1,8 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from autoslug import AutoSlugField
+from django.apps import apps
 import slugify
-from apps.Task.models import *
 
 
 class RolesChoice(models.TextChoices):
@@ -22,7 +22,9 @@ class CustomUser(AbstractUser):
     status = models.CharField(max_length=15, choices=StatusWorkerChoice.choices, default=StatusWorkerChoice.bench)
     team = models.ForeignKey('Team', on_delete=models.SET_NULL, null=True, related_name="current_team", blank=True)
     slug = AutoSlugField(populate_from='username', unique=True)
-    # assigned_task = models.ManyToManyField(Task, on_delete=models.SET_NULL, null=True, related_name='assigned_task')
+    # assigned_task = models.ManyToManyField(apps.get_model('Task', 'Task', require_ready=False),
+    #                                        blank=True, related_name='assigned_task')
+
 
     def set_status(self):
         status = {
