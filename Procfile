@@ -1,1 +1,1 @@
-web: gunicorn DeployExample.wsgi
+web: gunicorn TaskAlloProject.wsgi
