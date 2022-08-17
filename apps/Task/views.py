@@ -37,4 +37,4 @@ class ImageTaskViewSet(viewsets.ModelViewSet):
     """Список изображений заданий"""
     serializer_class = ImageTaskSerializer
     queryset = ImageTask.objects.all()
-    permission_classes = [IsManagerOrReadOnly]
+    permission_classes = [IsAuthenticated]
