@@ -11,18 +11,16 @@ Create a virtual environment to install dependencies in and activate it:
 $ python3.8 -m venv .venv
 $ source .venv/bin/activate
 ```
-Then install the dependencies:
-
 ```sh
-(.venv)$ pip install -r requirements.txt
+$ Then install the dependencies:
+$ make dependencies
 ```
 Note the `(.venv)` in front of the prompt. This indicates that this terminal
 session operates in a virtual environment set up by `venv`.
 Once `pip` has finished downloading the dependencies:
 Create migrations:
 ```sh
-(.venv)$ python manage.py makemigrations
-(.venv)$ python manage.py migrate
+(.venv)$ make migrate
 ```
 Create .env file in TaskAlloProject root folder:
 ```sh
@@ -62,7 +60,11 @@ SECRET_KEY = os.getenv('DJANGO_SECRET',)
 Your secret key should be in .env file like this:
 ```sh
 DJANGO_SECRET=asddsad231jsfjp32ojrjpfjsdoivzoidvhoxicj 
-```
+```sh
+Add test data to the database, enter the command:
+make add test bd
+```sh
+
 And finally (to this moment):
 ```sh
 (.venv)$ python manage.py runserver
