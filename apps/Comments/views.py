@@ -1,6 +1,8 @@
 from rest_framework import viewsets, response
 from .serializers import CommentSerializer, ImageCommentSerializer
 from .models import Comment, ImageComment
+from .serializers import CommentSerializer, ImageCommentSerializer
+from .models import Comment, ImageComment
 from TaskAlloProject.permissions import IsManagerOrReadAndPostOnly
 
 class CommentViewSet(viewsets.ModelViewSet):
