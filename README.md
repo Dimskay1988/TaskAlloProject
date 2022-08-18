@@ -60,11 +60,11 @@ SECRET_KEY = os.getenv('DJANGO_SECRET',)
 Your secret key should be in .env file like this:
 ```sh
 DJANGO_SECRET=asddsad231jsfjp32ojrjpfjsdoivzoidvhoxicj 
-```sh
+```
 Add test data to the database, enter the command:
-make add test bd
 ```sh
-
+make add test bd
+```
 And finally (to this moment):
 ```sh
 (.venv)$ python manage.py runserver
